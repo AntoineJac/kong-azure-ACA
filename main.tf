@@ -58,17 +58,17 @@ resource "azurerm_container_app_environment" "main" {
   resource_group_name = var.resource_group_name
 
   # log_analytics_workspace_id      = azurerm_log_analytics_workspace.main.id
-  # infrastructure_subnet_id        = data.azurerm_subnet.infrastructure.id
-  # internal_load_balancer_enabled  = true
-  # zone_redundancy_enabled         = true
+  infrastructure_subnet_id        = data.azurerm_subnet.infrastructure.id
+  internal_load_balancer_enabled  = true
+  zone_redundancy_enabled         = true
   # depends_on = [azurerm_log_analytics_workspace.main]
 }
 
-# data "azurerm_subnet" "infrastructure" {
-#   name                 = "XXXXX"
-#   virtual_network_name = "XXXXX"
-#   resource_group_name  = "XXXXX"
-# }
+data "azurerm_subnet" "infrastructure" {
+  name                 = "aca-subnet"
+  virtual_network_name = "XXXXX"
+  resource_group_name  = var.resource_group_name
+}
 
 # resource "azurerm_log_analytics_workspace" "main" {
 #   name                = var.workspaceName

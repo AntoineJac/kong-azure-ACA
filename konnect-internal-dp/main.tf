@@ -24,7 +24,7 @@ resource "azurerm_container_app" "konnect-internal-dp" {
   }
 
   ingress {
-    external_enabled = true
+    external_enabled = false
     transport = "auto"
     allow_insecure_connections = true
     # custom_domain {
