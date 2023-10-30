@@ -31,7 +31,9 @@ The following fiels are available for Konnect configuration, with descriptions:
 **Important**
 Azure Container App is expecting the certificate to be passed as a string. You can use the following command to convert a certificate into a string:
 ```
-awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}'
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' tls.crt
+
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}' tls.key
 ```
 
 ### Kong Data Plane Value
