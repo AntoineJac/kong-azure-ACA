@@ -15,7 +15,7 @@ The following fields are available for module configuration, with descriptions:
 
 ### Konnect Value
 
-The  following fiels are available for Konnect configuration, with descriptions:
+The following fiels are available for Konnect configuration, with descriptions:
 
 | Key     | Description | Data Type  | Default Value | Require |
 | ------- | ----------- | ---------- | ------------- | ------- |
@@ -27,6 +27,12 @@ The  following fiels are available for Konnect configuration, with descriptions:
 | konnect_internal_telemetry_endpoint | The cluster telemetry endpoint as defined in Konnect "xxxxxx.eu.tp0.konghq.com" for the internal DP | string | null | **true** |
 | konnect_internal_tls_crt | The TLS certificate of the Konnect internal Control Plane | string | null | **true** |
 | konnect_internal_tls_key | The TLS key of the Konnect internal Control Plane | string | null | **true** |
+
+**Important**
+Azure Container App is expecting the certificate to be passed as a string. You can use the following command to convert a certificate into a string:
+```
+awk 'NF {sub(/\r/, ""); printf "%s\\n",$0;}'
+```
 
 ### Kong Data Plane Value
 
